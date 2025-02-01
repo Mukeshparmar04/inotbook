@@ -37,7 +37,7 @@ const NoteState = (props)=>{
         
         // Logic to Add in Client site
         const note = {
-            "_id": "6729a7efb6f25ec6a0f158d1c5b",
+            "_id": "672954a8efbf25ec6a0f158d1c5b",
             "user": "6799fd92115499fdeb11161d54",
             "title": title,
             "description": description,
@@ -49,8 +49,17 @@ const NoteState = (props)=>{
     }
 
     //  Delete a Note
-    const deleteNote = (id)=>{
-        // Todo: API Call
+    const deleteNote = async(id)=>{
+        // API Call
+        const response = await fetch(`${host}/api/notes/deletenote/${id}`,{
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc5OWZkOTExNDk5ZmRlYjExMTYxZDU0In0sImlhdCI6MTczODE0NTI5NH0.MVMdIuhyp5YarpuuZFTfN_1bbxfVkdXtAJvN8tV4xuw',
+            },
+        });
+        const json = response.json();
+        console.log(json)
 
         // Logic to delete in Client site
         console.log("Note deleting.." + id)
