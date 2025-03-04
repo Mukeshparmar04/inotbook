@@ -54,7 +54,6 @@ router.post('/createuser',[
       }       
 })  
 
-
 //  ROUTE 2
 // Authenticate a User using: POST "api/auth/login". Doesn't required login.
 router.post('/login',[
@@ -97,8 +96,6 @@ router.post('/login',[
       res.status(500).send("Internal Server Error")
     } 
 });
-
-
 
 //  ROUTE 3
 // Get loggedin User using: POST "api/auth/getuser". Login required. 
